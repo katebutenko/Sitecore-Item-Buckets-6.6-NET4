@@ -16,6 +16,7 @@ namespace Sitecore.ItemBucket.Kernel.Commands
     using Sitecore.Text;
     using Sitecore.Web.UI.Sheer;
     using Constants = Sitecore.ItemBucket.Kernel.Util.Constants;
+    using Sitecore.Data.Fields;
 
     /// <summary>
     /// Extended Hook to capture all Add events
@@ -29,7 +30,7 @@ namespace Sitecore.ItemBucket.Kernel.Commands
         /// <remarks>You will need to override this if you are running without HttpContext e.g. Unit Tests</remarks>
         protected virtual void SetLocation(Item item)
         {
-            if (Context.ClientPage.IsNotNull())
+            if ((Context.GetSiteName() == "shell") && Context.ClientPage.IsNotNull() && !Sitecore.Client.Site.Notifications.Disabled)
             {
                 var urlString = new UrlString(Constants.ContentEditorRawUrlAddress);
                 urlString.Add(Constants.OpenItemEditorQueryStringKeyName, item.ID.ToString());
@@ -54,9 +55,11 @@ namespace Sitecore.ItemBucket.Kernel.Commands
                     Event.RaiseEvent("item:bucketing:adding", new object[] { this.NewId, this.ItemName, this.TemplateId, newDestination }, this);
 
                     var item = Nexus.DataApi.AddFromTemplate(TemplateId, newDestination, ItemName, NewId);
-
-                    if (newDestination.IsNotNull())
+                    if (item.IsNotNull())
                     {
+                        item.Editing.BeginEdit();
+                        item["__BucketParentRef"] = Destination.ID.ToString();
+                        item.Editing.EndEdit();
                         this.SetLocation(item);
                     }
 
