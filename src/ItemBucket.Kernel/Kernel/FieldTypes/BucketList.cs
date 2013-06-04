@@ -23,6 +23,18 @@
     /// </summary>
     public class BucketList : MultilistEx
     {
+        public override string Value
+        {
+            get
+            {
+                return this.ViewState["Value"] as string;
+            }
+            set
+            {
+                this.ViewState["Value"] = value;
+            }
+        }
+
         private int pageNumber = 1;
 
         private string filter = string.Empty;
@@ -241,6 +253,7 @@
                                     var filterBox" + ClientID + @" = document.getElementById('filterBox' + id);
                                     var multilistValues" + ClientID + @" = document.getElementById('multilistValues' + id).value.split(',');
                                     var savedStr" + ClientID + @" = filterBox" + ClientID + @".value;
+var selectedValues" + ClientID + @" = $('" + ClientID + @"_Value').value;
                            multilist" + ClientID + @".style.backgroundImage = ""url('/sitecore%20modules/Shell/Sitecore/ItemBuckets/images/load.gif')"";
                     multilist" + ClientID + @".style.backgroundPosition = ""50%"";
 multilist" + ClientID + @".style.backgroundRepeat = ""no-repeat"";
@@ -281,7 +294,7 @@ $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @" + 
                                             }
                                         }
 
-                                            mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"', true)
+                                            mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter  + @"&selectedValues='+ selectedValues" + ClientID + @", true)
                                                         mygetrequest" + ClientID + @".send(null);
                                             }
                                             function onFilterFocus" + ClientID + @"(filterBox) {
@@ -373,16 +386,18 @@ $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @" + 
 
                                                       $('next" + ClientID + @"').observe('click', function() {
 
+                                               if (pageNumberCount" + ClientID + " < "+(this.pageNumber+1)+@") {
+                                                pageNumberCount" + ClientID + @" = pageNumberCount" + ClientID + @" + 1;    
+                                                }
 
-
-                                                     pageNumberCount" + ClientID + @" = pageNumberCount" + ClientID + @" + 1;    
+                                                     
                                                     var filterBox" + ClientID + @" = document.getElementById('filterBox' + '" + ClientID + @"');
                                                                                if (filterBox" + ClientID + @".value == 'Type here to search') {
                                                     filterBox" + ClientID + @".value =  '*All*';
                                                     }
                                                                                 var savedStr" + ClientID + @" = filterBox" + ClientID + @".value;
 
-
+var selectedValues" + ClientID + @" = $('" + ClientID + @"_Value').value;
                                                       var multilist" + ClientID + @" = document.getElementById('" + ClientID + @"' + '_unselected');
 
                              multilist" + ClientID + @".style.backgroundImage = ""url('/sitecore%20modules/Shell/Sitecore/ItemBuckets/images/load.gif')"";
@@ -431,7 +446,7 @@ $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @" + 
 
   
                                                 $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @";
-                                                mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"&pageNumber=' + pageNumberCount" + ClientID + @", true)
+                                                mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"&pageNumber=' + pageNumberCount" + ClientID + @"+ '&selectedValues='+ selectedValues" + ClientID + @", true)
                                                             mygetrequest" + ClientID + @".send(null);
   
 
@@ -450,6 +465,7 @@ $('refresh" + ClientID + @"').observe('click', function() {
                                                     filterBox" + ClientID + @".value =  '*All*';
                                                     }
                                                                                 var savedStr" + ClientID + @" = filterBox" + ClientID + @".value;
+var selectedValues" + ClientID + @" = $('"+ ClientID + @"_Value').value;
 
 
                                                       var multilist" + ClientID + @" = document.getElementById('" + ClientID + @"' + '_unselected');
@@ -500,7 +516,7 @@ $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @" + 
 
   
                                                 $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @";
-                                                mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"&pageNumber=1'" + @", true)
+                                                mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"&pageNumber=1&selectedValues='+ selectedValues" + ClientID + @", true)
                                                             mygetrequest" + ClientID + @".send(null);
   
 
@@ -519,7 +535,7 @@ $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @" + 
 
                                                                             var savedStr" + ClientID + @" = filterBox" + ClientID + @".value;
 
-
+var selectedValues" + ClientID + @" = $('" + ClientID + @"_Value').value;
                                                   var multilist" + ClientID + @" = document.getElementById('" + ClientID + @"' + '_unselected');
                     
                                                                             var multilistValues" + ClientID + @" = document.getElementById('multilistValues' + '" + ClientID + @"').value.split(',');
@@ -568,7 +584,7 @@ $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @" + 
       
                                                 $('pageNumber" + ClientID + @"').innerHTML = pageNumberCount" + ClientID + @";
 
-                                                mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"&pageNumber=' + pageNumberCount" + ClientID + @", true)
+                                                mygetrequest" + ClientID + @".open(""GET"", ""/sitecore%20modules/Shell/Sitecore/ItemBuckets/Services/Search.ashx?fromBucketListField="" + savedStr" + ClientID + @" + '" + this.filter + @"&pageNumber=' + pageNumberCount" + ClientID + @"+ '&selectedValues='+ selectedValues" + ClientID + @", true)
                                                             mygetrequest" + ClientID + @".send(null);
 
                                                 } );

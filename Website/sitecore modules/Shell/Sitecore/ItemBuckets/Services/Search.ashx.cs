@@ -55,6 +55,8 @@ namespace ItemBuckets.Services
 
         private string callback;
 
+        private string[] selectedValuesArray;
+
         #endregion
 
         public void ProcessRequest(HttpContext context)
@@ -79,6 +81,12 @@ namespace ItemBuckets.Services
 
             this._itemsPerPage = SearchHelper.GetPageSize(this._searchQuery).IsNumeric() ? int.Parse(SearchHelper.GetPageSize(this._searchQuery)) : 20;
             var items = Context.Item.FullSearch(this._searchQuery, out hitCount, pageNumber: int.Parse(this._pageNumber), pageSize: this._itemsPerPage, sortField: SearchHelper.GetSort(this._searchQuery), sortDirection: SearchHelper.GetOrderDirection(this._searchQuery));
+
+            if (selectedValuesArray!=null && selectedValuesArray.Count() > 0)
+            {
+                items = items.RemoveWhere(item => selectedValuesArray.Contains(item.ItemId));
+            }
+
             var itemsCount = hitCount;
             var pageNumbers = ((itemsCount % this._itemsPerPage) == 0) ? (itemsCount / this._itemsPerPage) : ((itemsCount / this._itemsPerPage) + 1);
             var currentPage = int.Parse(this._pageNumber);
@@ -242,6 +250,7 @@ namespace ItemBuckets.Services
             }
         }
 
+
         private static string GetEditorLaunchType()
         {
             return Constants.SettingsItem.Fields[Constants.OpenSearchResult].Value == "New Tab" ? "contenteditor:launchtab" : "search:launchresult";
@@ -312,6 +321,10 @@ namespace ItemBuckets.Services
                             Value = searchQuery[i]
                         });
                     }
+                    else if (searchQuery.Keys[i] == "selectedValues")
+                    {
+                        this.ExtractSelectedValuesFromQuery(searchQuery, i);
+                    }
                     else
                     {
                         if (fromField)
@@ -327,12 +340,12 @@ namespace ItemBuckets.Services
                 else if (searchQuery.Keys[i] == "pageSize")
                 {
                     this.ExtractPageSizeFromQuery(searchQuery, i);
-                }
+                }              
                 else
                 {
                     this.ExtractPageNumberFromQuery(searchQuery, i);
                 }
-
+ 
                 if (!fromField)
                 {
                     i++;
@@ -361,6 +374,12 @@ namespace ItemBuckets.Services
                 this._pageNumber = "1";
             }
         }
+
+         private void ExtractSelectedValuesFromQuery(NameValueCollection searchQuery, int i)
+        {            
+                this.selectedValuesArray = searchQuery[searchQuery.Keys[i]].Split('|');
+        }
+        
 
         private void BuildSearchStringModelFromFieldQuery(NameValueCollection searchQuery, int i)
         {
