@@ -28,7 +28,6 @@ function GetItemPathFromMediaLibrary(id) {
 
 function BindItemResult(a) {
 
-    a = a.replace(imageFullPath, "");
     $('#Filename', parent.document.body).val(a);
     $('#ItemName', parent.document.body).val(a);
     

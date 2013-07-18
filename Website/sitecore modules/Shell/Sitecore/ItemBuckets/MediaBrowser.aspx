@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MediaBrowser.aspx.cs" Inherits="ItemBuckets.MediaBrowser" %>
-
 <%@ Register TagPrefix="sc" Namespace="Sitecore.Web.UI.WebControls" Assembly="Sitecore.Kernel" %>
 <%@ OutputCache Location="None" VaryByParam="none" %>
 <%@ Import Namespace="Sitecore" %>
@@ -30,16 +29,10 @@
     <link href="/sitecore%20modules/Shell/Sitecore/ItemBuckets/Styles/core.css" rel="stylesheet" type="text/css" />
     <script src="/sitecore%20modules/Shell/Sitecore/ItemBuckets/Scripts/date.js" type="text/javascript"></script>
     <script src="/sitecore%20modules/Shell/Sitecore/ItemBuckets/Scripts/ItemBucketMedia.js" type="text/javascript"></script>
+    <%--<script src="/sitecore%20modules/Shell/Sitecore/ItemBuckets/Scripts/ItemBucketMedia.js" type="text/javascript"></script>--%>
     <script src="/sitecore%20modules/Shell/Sitecore/ItemBuckets/Scripts/jquery.tabSlideOut.v1.3.js" type="text/javascript"></script>
-<%--    <script type="text/javascript"  src="/sitecore/shell/Override/BucketLink.js"></script>--%>
-    <!--[if IE]>
-     <link href="/sitecore%20modules/Shell/Sitecore/ItemBuckets/Styles/ItemBucketMini.ie.css" rel="stylesheet" type="text/css" />
-    <![endif]-->
-    <style>
-   .BlogPostArea {
+    <style type="text/css">
   
-    /*padding: 0;*/
-}
 
 .sb_dropdown 
 {
