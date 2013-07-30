@@ -12,6 +12,7 @@ using Sitecore.Data.Managers;
 namespace Sitecore.ItemBucket.Kernel.Commands
 {
     using Sitecore.Configuration;
+    using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using Sitecore.Globalization;
     using Sitecore.ItemBucket.Kernel.Kernel.Commands;
@@ -22,6 +23,7 @@ namespace Sitecore.ItemBucket.Kernel.Commands
     using Sitecore.Web;
     using Sitecore.Web.UI.Framework.Scripts;
     using Sitecore.Web.UI.Sheer;
+    using System;
 
     /// <summary>
     /// Add a new Content Editor Tab to Content Editor so that users can search for hidden content
@@ -37,24 +39,28 @@ namespace Sitecore.ItemBucket.Kernel.Commands
             Assert.ArgumentNotNull(context, "context");
             if (context.Items.Length == 1)
             {
-                var itemId = context.Parameters[0];
-                if (WebUtil.GetFormValue("scEditorTabs").Contains("contenteditor:launchtab") && WebUtil.GetFormValue("scEditorTabs").Contains(itemId))
+                string s = context.Parameters[0];
+                if (s.IsGuid())
                 {
-                    SheerResponse.Eval("scContent.onEditorTabClick(null, null, '" + itemId + "')");
-                }
-                else
-                {
-                    var urlString = new UrlString("/sitecore/shell/sitecore/content/Applications/Content%20Editor.aspx");
-                    urlString.Add(Util.Constants.OpenItemEditorQueryStringKeyName, itemId);
-                    TrackOpenTab(context);
-                    context.Items[0].Uri.AddToUrlString(urlString);
-                    UIUtil.AddContentDatabaseParameter(urlString);
-                    urlString.Add(Util.Constants.ModeQueryStringKeyName, "preview");
-                    urlString.Add(Util.Constants.RibbonQueryStringKeyName, "{D3A2D76F-02E6-49DE-BE90-D23C9771DC8D}");
-                    var language = context.Parameters["la"].IsNull() ? Sitecore.Context.Language.CultureInfo.TwoLetterISOLanguageName : context.Parameters["la"];
-                    urlString.Add("la", language);
-                    AddLatestVersionToUrlString(urlString, itemId, language);
-                    SheerResponse.Eval(new ShowEditorTab { Command = "contenteditor:launchtab", Header = Translate.Text(Context.ContentDatabase.GetItem(itemId).Name), Icon = Images.GetThemedImageSource("Applications/16x16/text_view.png"), Url = urlString.ToString(), Id = itemId, Closeable = true, Activate = Util.Constants.SettingsItem.Fields[Util.Constants.OpenSearchResult].Value == "New Tab Not Selected" ? false : true }.ToString());
+                    if (WebUtil.GetFormValue("scEditorTabs").Contains("contenteditor:launchtab") && WebUtil.GetFormValue("scEditorTabs").Contains(s))
+                    {
+                        SheerResponse.Eval("scContent.onEditorTabClick(null, null, '" + s + "')");
+                    }
+                    else
+                    {
+                        UrlString urlString = new UrlString(Util.Constants.ContentEditorRawUrlAddress);
+                        urlString.Add(Util.Constants.OpenItemEditorQueryStringKeyName, s);
+                        TrackOpenTab(context);
+                        context.Items[0].Uri.AddToUrlString(urlString);
+                        UIUtil.AddContentDatabaseParameter(urlString);
+                        urlString.Add(Util.Constants.ModeQueryStringKeyName, "preview");
+                        urlString.Add("il", "0");
+                        urlString.Add(Util.Constants.RibbonQueryStringKeyName, "{D3A2D76F-02E6-49DE-BE90-D23C9771DC8D}");
+                        string str3 = context.Parameters["la"] ?? Context.Language.CultureInfo.TwoLetterISOLanguageName;
+                        urlString.Add("la", str3);
+                        AddLatestVersionToUrlString(urlString, s, str3);
+                        SheerResponse.Eval(new ShowEditorTab { Command = "contenteditor:launchtab", Header = Translate.Text(Context.ContentDatabase.GetItem(s).Name), Icon = Images.GetThemedImageSource("Applications/16x16/text_view.png"), Url = urlString.ToString(), Id = s, Closeable = true, Activate = Util.Constants.SettingsItem[Util.Constants.OpenSearchResult] != "New Tab Not Selected" }.ToString());
+                    }
                 }
             }
         }
@@ -71,9 +77,12 @@ namespace Sitecore.ItemBucket.Kernel.Commands
             {
                 return CommandState.Disabled;
             }
-
-            var item = context.Items[0];
-            return !this.HasField(item, FieldIDs.LayoutField) ? CommandState.Hidden : base.QueryState(context);
+            Item item = context.Items[0];
+            if (base.HasField(item, FieldIDs.LayoutField))
+            {
+                return base.QueryState(context);
+            }
+            return CommandState.Hidden;
         }
 
         #region Private Methods
@@ -85,8 +94,15 @@ namespace Sitecore.ItemBucket.Kernel.Commands
         /// <param name="itemId">Id of the Item that will have the its version checked</param>
         private static void AddLatestVersionToUrlString(UrlString urlString, string itemId, string language)
         {
-            urlString.Remove(Util.Constants.VersionQueryStringKeyName);
-            urlString.Add(Util.Constants.VersionQueryStringKeyName, Context.ContentDatabase.GetItem(itemId, LanguageManager.GetLanguage(language)).Versions.GetLatestVersion().Version.ToString());
+            try
+            {
+                urlString.Remove(Util.Constants.VersionQueryStringKeyName);
+                urlString.Add(Util.Constants.VersionQueryStringKeyName, Context.ContentDatabase.GetItem(itemId, LanguageManager.GetLanguage(language)).Versions.GetLatestVersion().Version.ToString());
+            }
+            catch (Exception exception)
+            {
+                Log.Audit("Trying to access an item that does exist from the recently opened tabs", exception);
+            }
         }
         #endregion
 
@@ -96,14 +112,14 @@ namespace Sitecore.ItemBucket.Kernel.Commands
         /// <param name="context">Context of the Command</param>
         private static void TrackOpenTab(CommandContext context)
         {
-            if (ClientContext.GetValue("RecentlyOpenedTabs").IsNull())
+            if (ClientContext.GetValue("RecentlyOpenedTabs") == null)
             {
                 ClientContext.SetValue("RecentlyOpenedTabs", string.Empty);
             }
-
-            if (!ClientContext.GetValue("RecentlyOpenedTabs").ToString().Contains("|" + context.Parameters[0] + "|"))
+            object obj2 = ClientContext.GetValue("RecentlyOpenedTabs");
+            if ((obj2 != null) && !obj2.ToString().Contains("|" + context.Parameters[0] + "|"))
             {
-                ClientContext.SetValue("RecentlyOpenedTabs", ClientContext.GetValue("RecentlyOpenedTabs") + "|" + context.Parameters[0] + "|");
+                ClientContext.SetValue("RecentlyOpenedTabs", string.Concat(new object[] { ClientContext.GetValue("RecentlyOpenedTabs"), "|", context.Parameters[0], "|" }));
             }
         }
     }

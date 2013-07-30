@@ -109,12 +109,14 @@
     <Compile Include="Kernel\Commands\BaseCommand.cs" />
     <Compile Include="Kernel\Commands\BucketUsage.cs" />
     <Compile Include="Kernel\Commands\BucketUsageForm.cs" />
+    <Compile Include="Kernel\Commands\ClosePreview.cs" />
     <Compile Include="Kernel\Commands\FullScreen.cs" />
     <Compile Include="Kernel\Commands\GenerateSOLRSchema.cs" />
     <Compile Include="Kernel\Commands\GoToClosestBucketParent.cs" />
     <Compile Include="Kernel\Commands\MarkAsUnBucketable.cs" />
     <Compile Include="Kernel\Commands\PasteToField.cs" />
     <Compile Include="Kernel\Commands\Rebuild.cs" />
+    <Compile Include="Kernel\Commands\SaveAndClose.cs" />
     <Compile Include="Kernel\Commands\SelectInTree.cs" />
     <Compile Include="Kernel\Commands\SOLRGenerateForm.cs" />
     <Compile Include="Kernel\Commands\SyncBucket.cs" />
