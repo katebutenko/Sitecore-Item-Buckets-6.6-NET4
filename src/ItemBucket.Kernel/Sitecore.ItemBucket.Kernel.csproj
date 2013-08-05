@@ -48,19 +48,16 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentArt.Web.UI, Version=2010.1.2637.35, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Sitecore\ComponentArt.Web.UI.dll</HintPath>
+    <Reference Include="ComponentArt.Web.UI">
+      <HintPath>..\..\lib\Sitecore\ComponentArt.Web.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Website\bin\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\lib\Sitecore\HtmlAgilityPack.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Website\bin\Lucene.Net.dll</HintPath>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\lib\Sitecore\Lucene.Net.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -72,14 +69,12 @@
       <HintPath>..\..\lib\Sitecore\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Sitecore.Client, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Website\bin\Sitecore.Client.dll</HintPath>
+    <Reference Include="Sitecore.Client">
+      <HintPath>..\..\lib\Sitecore\Sitecore.Client.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Sitecore.Kernel, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Website\bin\Sitecore.Kernel.dll</HintPath>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SolrNet">
@@ -310,14 +305,14 @@
     <Content Include="Kernel\Search\SOLR\schema_template.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Settings.StyleCop" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Sitecore.BigData\Sitecore.BigData.csproj">
-      <Project>{78AC2EB0-0516-4556-AAA5-BF1D81BF2089}</Project>
+      <Project>{78ac2eb0-0516-4556-aaa5-bf1d81bf2089}</Project>
       <Name>Sitecore.BigData</Name>
       <Private>False</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
