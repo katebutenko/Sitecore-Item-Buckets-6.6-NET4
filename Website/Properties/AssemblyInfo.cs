@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Sitecore.ItemBucket.Kernel")]
-[assembly: AssemblyProduct("Sitecore.ItemBucket.Kernel")]
+[assembly: AssemblyTitle("Sitecore.ItemBucket.UI")]
+[assembly: AssemblyProduct("Sitecore.ItemBucket.UI")]
 [assembly: AssemblyDescription("Sitecore Shared Source Module")]
 
 [assembly: AssemblyCompany("Sitecore Corporation")]
