@@ -6904,6 +6904,16 @@
             </summary>
             <value>The validators key.</value>
         </member>
+        <member name="T:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreview">
+            <summary>
+            Represents a one column preview pane.
+            </summary>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.ContentManager.FieldEditor">
+            <summary>
+            Defines the mini editor class.
+            </summary>
+        </member>
         <member name="T:Sitecore.Shell.Applications.ContentManager.Editor">
             <summary>
             Builds the editor fields in the Content Editor.
@@ -7338,6 +7348,14 @@
             	<c>true</c> if <see cref="T:Sitecore.Shell.Applications.ContentManager.Editor"/>shows the data fields only; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.Editor.ShowHiddenFields">
+            <summary>
+            Gets or sets a value indicating whether [show hidden fields].
+            </summary>
+            <value>
+              <c>true</c> if [show hidden fields]; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="P:Sitecore.Shell.Applications.ContentManager.Editor.ShowInputBoxes">
             <summary>
             Gets or sets a value indicating whether the <see cref="T:Sitecore.Shell.Applications.ContentManager.Editor"/> shows the input boxes.
@@ -7569,6 +7587,695 @@
             Gets the <see cref="T:Sitecore.Shell.Applications.ContentManager.Editor.Section"/> with the specified name.
             </summary>
             <value></value>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditor._defaultIcon">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditor._defaultTitle">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditor._fields">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditor"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.Render(System.Collections.Generic.IEnumerable{Sitecore.Data.FieldDescriptor},System.Collections.Hashtable,System.Web.UI.Control)">
+            <summary>
+            Renders the specified fields.
+            </summary>
+            <param name="fields">
+            The fields.
+            </param>
+            <param name="fieldInfo">
+            The fieldinfo.
+            </param>
+            <param name="parent">
+            The parent.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.Render(System.Collections.Generic.IEnumerable{Sitecore.Data.FieldDescriptor},System.Collections.Hashtable,System.Web.UI.Control,System.Boolean)">
+            <summary>
+            Renders the specified fields.
+            </summary>
+            <param name="fields">
+            The fields.
+            </param>
+            <param name="fieldInfo">
+            The fieldinfo.
+            </param>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="readOnly">if set to <c>true</c> [read only].</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.Render(Sitecore.Data.Items.Item,Sitecore.Data.Items.Item,System.Collections.Hashtable,System.Web.UI.Control,System.Boolean)">
+            <summary>
+            Renders the editor.
+            </summary>
+            <param name="root">The root.</param>
+            <param name="item">The item.</param>
+            <param name="fieldInfo">The field info.</param>
+            <param name="parent">The parent.</param>
+            <param name="showEditor">if set to <c>true</c> this instance is show editor.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Not supported in field editor
+            </exception>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.GetEditorFormatter">
+            <summary>
+            Gets the editor formatter.
+            </summary>
+            <returns>The editor formatter.</returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.GetSections">
+            <summary>
+            Gets the sections.
+            </summary>
+            <returns>The sections.</returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.GetWarnings(System.Boolean)">
+            <summary>
+            Gets the warnings.
+            </summary>
+            <param name="hasSections">
+            if set to <c>true</c> [has sections].
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.DefaultIcon">
+            <summary>
+            Gets or sets the default icon.
+            </summary>
+            <value>The default icon.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.DefaultTitle">
+            <summary>
+            Gets or sets the default title.
+            </summary>
+            <value>The default title.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.PreserveSections">
+            <summary>
+            Gets or sets a value indicating whether [preserve sections].
+            </summary>
+            <value><c>true</c> if [preserve sections]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.FieldUris">
+            <summary>
+            Gets the fields.
+            </summary>
+            <value>The fields.</value>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreview.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreview"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreview.GetEditorFormatter">
+            <summary>
+            Gets the editor formatter.
+            </summary>
+            <returns>The editor formatter.</returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreview.GetReadOnly(Sitecore.Data.Items.Item)">
+            <summary>
+            Gets the read only flag.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreviewForm">
+            <summary>
+            Represents a One column form.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreviewForm.Fields">
+            <summary></summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreviewForm.Dialog">
+            <summary>
+            The dialog.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreviewForm.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the pre render event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnPreviewForm.RenderEditor(Sitecore.Data.Items.Item,Sitecore.Data.Items.Item,System.Web.UI.Control)">
+            <summary>
+            Renders the editor.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="root">The root.</param>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnFormatter">
+            <summary>
+            Represents a one column preview pane.
+            </summary>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.ContentEditor.EditorFormatter">
+            <summary>
+            Formatter for rendering the editor
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.arguments">
+            <summary>
+            The arguments.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetAttributes(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean)">
+            <summary>
+            Sets the attributes.
+            </summary>
+            <param name="editor">
+            The editor.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="hasRibbon">
+            if set to <c>true</c> this instance is has ribbon.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetProperties(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean)">
+            <summary>
+            Sets the properties.
+            </summary>
+            <param name="editor">
+            The editor.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> this instance is read only.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetStyle(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field)">
+            <summary>
+            Sets the style.
+            </summary>
+            <param name="editor">
+            The editor.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.AddEditorControl(System.Web.UI.Control,System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Adds the editor control.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="editor">
+            The editor.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="hasRibbon">
+            if set to <c>true</c> [has ribbon].
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> [read only].
+            </param>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.AddLiteralControl(System.Web.UI.Control,System.String)">
+            <summary>
+            Adds the literal control.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="text">
+            The control text.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.GetEditor(Sitecore.Data.Items.Item)">
+            <summary>
+            Gets the editor.
+            </summary>
+            <param name="fieldType">
+            Type of the field.
+            </param>
+            <returns>
+            The editor.
+            </returns>
+            <contract>
+              <requires name="fieldType" condition="not null"/>
+              <ensures condition="not null"/>
+            </contract>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.GetFieldType(Sitecore.Data.Fields.Field)">
+            <summary>
+            Gets the type of the field.
+            </summary>
+            <param name="itemField">
+            The item field.
+            </param>
+            <returns>
+            The items that represents field type.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean)">
+            <summary>
+            Renders the field.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> this instance is read only.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
+            <summary>
+            Renders the field.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="fieldType">
+            Type of the field.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> [read only].
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean,System.String)">
+            <summary>
+            Renders the field.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="fieldType">
+            Type of the field.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> this instance is read only.
+            </param>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderLabel(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
+            <summary>
+            Renders the label.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="fieldType">
+            Type of the field.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> [read only].
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMarkerBegin(System.Web.UI.Control,System.String)">
+            <summary>
+            Renders the marker begin.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="fieldControlID">
+            The field control id.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMarkerEnd(System.Web.UI.Control)">
+            <summary>
+            Renders the marker end.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMenuButtons(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
+            <summary>
+            Renders the menu buttons.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+            <param name="fieldType">
+            Type of the field.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> [read only].
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSection(Sitecore.Shell.Applications.ContentManager.Editor.Section,System.Web.UI.Control,System.Boolean)">
+            <summary>
+            Renders the section.
+            </summary>
+            <param name="section">
+            The section.
+            </param>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> this instance is read only.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSectionBegin(System.Web.UI.Control,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Renders the section begin.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="controlId">
+            The control id.
+            </param>
+            <param name="sectionName">
+            Name of the section.
+            </param>
+            <param name="displayName">
+            Name of the display.
+            </param>
+            <param name="icon">
+            The section icon.
+            </param>
+            <param name="isCollapsed">
+            if set to <c>true</c> this section is is collapsed.
+            </param>
+            <param name="renderFields">
+            if set to <c>true</c> fields will be rendered.
+            </param>
+            <contract>
+              <requires name="parent" condition="not null"/>
+              <requires name="controlId" condition="not empty"/>
+              <requires name="displayName" condition="not empty"/>
+              <requires name="icon" condition="not null"/>
+            </contract>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSectionEnd(System.Web.UI.Control,System.Boolean)">
+            <summary>
+            Renders the section end.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="renderFields">
+            if set to <c>true</c> [render fields].
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSectionEnd(System.Web.UI.Control,System.Boolean,System.Boolean)">
+            <summary>
+            Renders the section end.
+            </summary>
+            <param name="parent">The parent.</param>
+            <param name="renderFields">if set to <c>true</c> literal control will be rendered.</param>
+            <param name="isCollapsed">if set to <c>true</c> section is collapsed.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSections(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Sections,System.Boolean)">
+            <summary>
+            Renders the sections.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="sections">
+            The sections.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> this instance is read only.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetValue(System.Web.UI.Control,System.String)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="editor">
+            The editor.
+            </param>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMenuButtons(Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
+            <summary>
+            Renders the menu buttons.
+            </summary>
+            <param name="field">
+            The field.
+            </param>
+            <param name="menu">
+            The menu item.
+            </param>
+            <param name="readOnly">
+            if set to <c>true</c> the buttons are read-only.
+            </param>
+            <returns>
+            The menu buttons.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderResizable(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field)">
+            <summary>
+            Renders the resizable.
+            </summary>
+            <param name="parent">
+            The parent.
+            </param>
+            <param name="field">
+            The field.
+            </param>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.Arguments">
+            <summary>
+            Gets or sets the argumets.
+            </summary>
+            <value>The arguments.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.IsFieldEditor">
+            <summary>
+            Gets or sets a value indicating whether editor formatter is rendering field editor.
+            </summary>
+            <value><c>true</c> if field editor; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.OneColumnPreview.OneColumnFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
+            <summary>
+            Renders the translator.
+            </summary>
+            <param name="parent">The parent.</param>
+            <param name="field">The field.</param>
+            <param name="fieldType">Type of the field.</param>
+            <param name="readOnly">if set to <c>true</c> this instance is read only.</param>
+        </member>
+        <member name="T:Sitecore.sitecore.shell.Applications.Content_Manager.Dialogs.OneColumnPreview.OneColumnPreviewOptions">
+            <summary>
+            Defines the options  for one column previewer.
+            </summary>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions">
+            <summary>
+            Defines the field editor options class.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._fields">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._dialogTitle">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._icon">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.parameters">
+            <summary>
+            Custom parameters
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._text">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._title">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.handleName">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.#ctor(System.Collections.Generic.IEnumerable{Sitecore.Data.FieldDescriptor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions"/> class.
+            </summary>
+            <param name="fields">
+            The fields.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.GetUrl">
+            <summary>
+            Gets the URL.
+            </summary>
+            <returns>
+            The URL.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parse(Sitecore.Text.UrlString)">
+            <summary>
+            Parses the specified url.
+            </summary>
+            <param name="url">
+            The url to parse.
+            </param>
+            <returns>
+            The field editor options.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parse(System.String)">
+            <summary>
+            Parses the specified handle.
+            </summary>
+            <param name="handle">
+            The handle.
+            </param>
+            <returns>
+            The field editor options.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.ToUrlHandle">
+            <summary>
+            Converts the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions"/> to a <see cref="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.HandleName"/>.
+            </summary>
+            <returns>The <see cref="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.HandleName"/>.</returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.ToUrlString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parse(Sitecore.Web.UrlHandle)">
+            <summary>
+            Parses the specified handle.
+            </summary>
+            <param name="handle">
+            The handle.
+            </param>
+            <returns>
+            The field editor options.
+            </returns>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.DialogTitle">
+            <summary>
+            Gets or sets the dialog title.
+            </summary>
+            <value>The dialog title.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Fields">
+            <summary>
+            Gets the fields.
+            </summary>
+            <value>The fields.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.IsInFrame">
+            <summary>
+            Gets or sets a value indicating whether this instance is in frame.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is in frame; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Icon">
+            <summary>
+            Gets or sets the icon.
+            </summary>
+            <value>The dialog icon.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.PreserveSections">
+            <summary>
+            Gets or sets a value indicating whether [preserve sections].
+            </summary>
+            <value><c>true</c> if [preserve sections]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.SaveItem">
+            <summary>
+            Gets or sets value indicating if item should be saved
+            </summary>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Text">
+            <summary>
+            Gets or sets the text.
+            </summary>
+            <value>The dialog text.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.HandleName">
+            <summary>
+            Gets or sets the handle.
+            </summary>
+            <value>The handle.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parameters">
+            <summary>
+            Gets the custom parameters.
+            </summary>
+            <value>The custom parameters.</value>
+        </member>
+        <member name="M:Sitecore.sitecore.shell.Applications.Content_Manager.Dialogs.OneColumnPreview.OneColumnPreviewOptions.#ctor(System.Collections.Generic.IEnumerable{Sitecore.Data.FieldDescriptor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.sitecore.shell.Applications.Content_Manager.Dialogs.OneColumnPreview.OneColumnPreviewOptions"/> class.
+            </summary>
+            <param name="fields">The fields.</param>
+        </member>
+        <member name="M:Sitecore.sitecore.shell.Applications.Content_Manager.Dialogs.OneColumnPreview.OneColumnPreviewOptions.GetUrl">
+            <summary>
+            Gets the URL.
+            </summary>
+            <returns>
+            The URL.
+            </returns>
         </member>
         <member name="T:Sitecore.Shell.Applications.ContentManager.ContentEditorPage">
             <summary></summary>
@@ -8625,6 +9332,24 @@
             	<c>true</c> if the <see cref="T:Sitecore.Shell.Applications.ContentEditor.Editors.Folder.FolderPage"/> renders the insert options; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="T:Sitecore.Shell.Applications.ContentManager.ReturnFieldEditorValues.SaveValues">
+            <summary>
+            Defines the validate class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.ReturnFieldEditorValues.SaveValues.Process(Sitecore.Shell.Applications.ContentManager.ReturnFieldEditorValues.ReturnFieldEditorValuesArgs)">
+            <summary>
+            Runs the processor.
+            </summary>
+            <param name="args">
+            The arguments.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ContentManager.ReturnFieldEditorValues.SaveValues.SetPageEditorFieldValues(Sitecore.Shell.Applications.ContentManager.FieldEditorOptions)">
+            <summary>
+            Saves the page editor field values.
+            </summary>
+        </member>
         <member name="T:Sitecore.Shell.Applications.ControlPanel.Preferences.ColorPicker.ColorPickerPage">
             <summary>
             Represents a Color Picker page
@@ -8971,6 +9696,418 @@
             <param name="context">
             The context.
             </param>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Security.EditUser.EditUserPage">
+            <summary>
+            Represents a GridDesignerPage.
+            </summary>
+            <summary>
+            Represents a GridDesignerPage.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ChangeProfile_Click">
+            <summary>
+            Handles the Change profile_ click event.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.EditProfile_Click">
+            <summary>
+            Handles the Edit profile_ click event.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ReloadProperties">
+            <summary>
+            Reloads the properties.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderSettings(Sitecore.Security.UserProfile)">
+            <summary>
+            Renders the section.
+            </summary>
+            <param name="profile">
+              The profile.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.GetProfileItem(Sitecore.Security.UserProfile)">
+            <summary>
+            Gets the profile item.
+            </summary>
+            <param name="profile">The profile.</param>
+            <returns>
+            The profile item.
+            </returns>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Add">
+            <summary>
+            The add.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ClientLanguage">
+            <summary>
+            The client language.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ContentLanguage">
+            <summary>
+            The content language.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.CreationDate">
+            <summary>
+            The creation date.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ChangeProfile">
+            <summary>
+            Change profile button.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Description">
+            <summary>
+            The description.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.DomainName">
+            <summary>
+            The domain name.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Email">
+            <summary>
+            The email.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.FullName">
+            <summary>
+            The full name.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.IsAdministrator">
+            <summary>
+            The is administrator.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastActivityDate">
+            <summary>
+            The last activity date.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastLockoutDate">
+            <summary>
+            The last lockout date.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastLoginDate">
+            <summary>
+            The last login date.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastPasswordChangedDate">
+            <summary>
+            The last password changed date.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ManagedDomains">
+            <summary>
+            The managed domains.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ManagedDomainsValue">
+            <summary>
+            The managed domains value.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portrait">
+            <summary>
+            The portrait.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.PortraitImage">
+            <summary>
+            The portrait image.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portraits">
+            <summary>
+            The portraits.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Properties">
+            <summary>
+            The properties.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.PropertiesFrame">
+            <summary>
+            The properties frame.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.EditProfile">
+            <summary>
+            Edit profile button
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RegionalISOCode">
+            <summary>
+            The regional iso code.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Remove">
+            <summary>
+            The remove.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Roles">
+            <summary>
+            The roles.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RolesValue">
+            <summary>
+            The roles value.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartContentEditor">
+            <summary>
+            The start content editor.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartCustom">
+            <summary>
+            The start custom.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartDefault">
+            <summary>
+            The start default.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartDesktop">
+            <summary>
+            The start desktop.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartPreview">
+            <summary>
+            The start preview.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartUrl">
+            <summary>
+            The start url.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartWebEdit">
+            <summary>
+            The start web edit.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.TabStrip">
+            <summary>
+            The tab strip.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.UserName">
+            <summary>
+            The user name.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Sitecore#Shell#Framework#Commands#IHasCommandContext#GetCommandContext">
+            <summary>
+            Gets the command context.
+            </summary>
+            <returns>
+            The command context.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Add_Click">
+            <summary>
+            Handles the Add_ click event.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ExecuteAjaxCommand(Sitecore.Web.UI.XamlSharp.Ajax.AjaxCommandEventArgs)">
+            <summary>
+            Executes the ajax command.
+            </summary>
+            <param name="e">
+            The <see cref="T:Sitecore.Web.UI.XamlSharp.Ajax.AjaxCommandEventArgs"/> instance containing the event data.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ManagedDomains_Click">
+            <summary>
+            Handles the Manage domains click event.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.OK_Click">
+            <summary>
+            Handles a click on the OK button.
+            </summary>
+            <remarks>
+            When the user clicks OK, the dialog is closed by calling
+            the <see cref="M:Sitecore.Web.UI.Sheer.ClientResponse.CloseWindow">CloseWindow</see> method.
+            </remarks>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Load"></see> event.
+            </summary>
+            <param name="e">
+            The <see cref="T:System.EventArgs"></see> object that contains the event data.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ChangeImagesInStripeForJapanese">
+            <summary>
+            Changes the images in stripe for japanese.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.AddJapaneseLanguagePartToFileName(System.String)">
+            <summary>
+            Adds the name of the japanese language part to file.
+            </summary>
+            <param name="filename">The filename.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portrait_Change">
+            <summary>
+            Portraits_s the change.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portraits_Change">
+            <summary>
+            Portraits_s the change.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.FormatDate(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Formats the date.
+            </summary>
+            <param name="date">
+            The date.
+            </param>
+            <param name="cultureInfo">
+            The info.
+            </param>
+            <returns>
+            The formated date.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.GetControlID(Sitecore.Data.Templates.TemplateField)">
+            <summary>
+            Gets the control ID.
+            </summary>
+            <param name="field">
+            The field.
+            </param>
+            <returns>
+            The control ID.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.GetUser">
+            <summary>
+            Gets the user.
+            </summary>
+            <returns>
+            The user.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.HasChanged(System.String,System.String)">
+            <summary>
+            Because profileValue could be null or string.Empty and control's value could be only string.Empty then
+            check profileValue != controlValue does not give us 100% guarantee that nothing was changed and
+            we also should check !string.IsNullOrEmpty(profileValue) || !string.IsNullOrEmpty(controlValue)
+            </summary>
+            <param name="profileValue">Profile value to check.
+            </param>
+            <param name="controlValue">Control value to check.
+            </param>
+            <returns>
+            The has changed.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderLanguages(Sitecore.Data.Database,System.Web.UI.WebControls.DropDownList)">
+            <summary>
+            Builds the languages.
+            </summary>
+            <param name="database">
+            The database.
+            </param>
+            <param name="dropDownList">
+            The drop down list.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Localize">
+            <summary>
+            Localizes the tabs in tabstrip.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderClientLanguages">
+            <summary>
+            Builds the client languages.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderContentLanguages">
+            <summary>
+            Builds the client languages.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderPortraits">
+            <summary>
+            Builds the portraits.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderProfileTemplate(Sitecore.Security.UserProfile)">
+            <summary>
+            Renders the profile template.
+            </summary>
+            <param name="profile">
+            The profile.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderRegionalIsoCodes">
+            <summary>
+            Builds the regional ISO codes.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderRoles(Sitecore.Security.Accounts.User)">
+            <summary>
+            Renders the roles.
+            </summary>
+            <param name="user">
+            The user.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.GetProfileId(Sitecore.Security.UserProfile)">
+            <summary>
+            Gets the profile id.
+            </summary>
+            <param name="profile">The profile.</param>
+            <returns>
+            The profile id.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <returns>
+            The validate.
+            </returns>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.SaveCustomProperties(Sitecore.Security.UserProfile,System.Boolean@)">
+            <summary>
+            Saves the custom properties.
+            </summary>
+            <param name="profile">
+            The profile.
+            </param>
+            <param name="changed">
+            Indicates wherever UserProfile was changed.
+            </param>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.userPropertiesUrl">
+            <summary>
+            User Properties Url
+            </summary>
         </member>
         <member name="T:Sitecore.Shell.Applications.WebEdit.Commands.ClearImage">
             <summary>
@@ -13255,6 +14392,10 @@
             Represents a FieldInfo.
             </summary>
         </member>
+        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldInfo.ItemUri">
+            <summary>
+            </summary>
+        </member>
         <member name="F:Sitecore.Shell.Applications.ContentManager.FieldInfo.ID">
             <summary></summary>
         </member>
@@ -15573,6 +16714,14 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:Sitecore.Shell.Applications.Licenses.LicenseDetails.LicenseDetailsForm.GetChildValue(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Gets the child value.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="childName">Name of the child.</param>
+            <returns>the child value</returns>
+        </member>
         <member name="T:Sitecore.Shell.Applications.Licenses.LicenseOverview.LicenseOverviewForm">
             <summary>
             Represents a LicenseOverviewForm.
@@ -15776,6 +16925,14 @@
             Sets the portrait.
             </summary>
             <param name="portrait">The portrait.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.ControlPanel.Preferences.UserInformation.UserInformationForm.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <returns>
+            The validate.
+            </returns>
         </member>
         <member name="T:Sitecore.Shell.Applications.ControlPanel.Preferences.Wallpaper.WallpaperForm">
             <summary>
@@ -17062,6 +18219,12 @@
             Represents a Kick.
             </summary>
         </member>
+        <member name="M:Sitecore.Shell.Applications.Login.Users.Kick.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Load" /> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs" /> object that contains the event data.</param>
+        </member>
         <member name="M:Sitecore.Shell.Applications.Login.Users.Kick.OnPreRender(System.EventArgs)">
             <summary>
             Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
@@ -17269,6 +18432,12 @@
             Auto-generated field.
             To modify move field declaration from designer file to code-behind file.
             </remarks>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Login.Users.UsersPage.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Load" /> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs" /> object that contains the event data.</param>
         </member>
         <member name="M:Sitecore.Shell.Applications.Login.Users.UsersPage.OnPreRender(System.EventArgs)">
             <summary>
@@ -18854,496 +20023,6 @@
             The name of the user.
             </value>
         </member>
-        <member name="T:Sitecore.Shell.Applications.Security.EditUser.EditUserPage">
-            <summary>
-            Represents a GridDesignerPage.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Add">
-            <summary>
-            The add.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ClientLanguage">
-            <summary>
-            The client language.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ContentLanguage">
-            <summary>
-            The content language.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.CreationDate">
-            <summary>
-            The creation date.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ChangeProfile">
-            <summary>
-            Change profile button.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Description">
-            <summary>
-            The description.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.DomainName">
-            <summary>
-            The domain name.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Email">
-            <summary>
-            The email.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.FullName">
-            <summary>
-            The full name.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.IsAdministrator">
-            <summary>
-            The is administrator.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastActivityDate">
-            <summary>
-            The last activity date.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastLockoutDate">
-            <summary>
-            The last lockout date.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastLoginDate">
-            <summary>
-            The last login date.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.LastPasswordChangedDate">
-            <summary>
-            The last password changed date.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ManagedDomains">
-            <summary>
-            The managed domains.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ManagedDomainsValue">
-            <summary>
-            The managed domains value.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portrait">
-            <summary>
-            The portrait.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.PortraitImage">
-            <summary>
-            The portrait image.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portraits">
-            <summary>
-            The portraits.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Properties">
-            <summary>
-            The properties.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.PropertiesGrid">
-            <summary>
-            The properties grid.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RegionalISOCode">
-            <summary>
-            The regional iso code.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Remove">
-            <summary>
-            The remove.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Roles">
-            <summary>
-            The roles.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RolesValue">
-            <summary>
-            The roles value.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartContentEditor">
-            <summary>
-            The start content editor.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartCustom">
-            <summary>
-            The start custom.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartDefault">
-            <summary>
-            The start default.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartDesktop">
-            <summary>
-            The start desktop.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartPreview">
-            <summary>
-            The start preview.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartUrl">
-            <summary>
-            The start url.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.StartWebEdit">
-            <summary>
-            The start web edit.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.TabStrip">
-            <summary>
-            The tab strip.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.UserName">
-            <summary>
-            The user name.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Sitecore#Shell#Framework#Commands#IHasCommandContext#GetCommandContext">
-            <summary>
-            Gets the command context.
-            </summary>
-            <returns>
-            The command context.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ChangeProfile_Click">
-            <summary>
-            Handles the Change profile_ click event.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Add_Click">
-            <summary>
-            Handles the Add_ click event.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ExecuteAjaxCommand(Sitecore.Web.UI.XamlSharp.Ajax.AjaxCommandEventArgs)">
-            <summary>
-            Executes the ajax command.
-            </summary>
-            <param name="e">
-            The <see cref="T:Sitecore.Web.UI.XamlSharp.Ajax.AjaxCommandEventArgs"/> instance containing the event data.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ManagedDomains_Click">
-            <summary>
-            Handles the Manage domains click event.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.OK_Click">
-            <summary>
-            Handles a click on the OK button.
-            </summary>
-            <remarks>
-            When the user clicks OK, the dialog is closed by calling
-            the <see cref="M:Sitecore.Web.UI.Sheer.ClientResponse.CloseWindow">CloseWindow</see> method.
-            </remarks>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.OnLoad(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:System.Web.UI.Control.Load"></see> event.
-            </summary>
-            <param name="e">
-            The <see cref="T:System.EventArgs"></see> object that contains the event data.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.ChangeImagesInStripeForJapanese">
-            <summary>
-            Changes the images in stripe for japanese.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.AddJapaneseLanguagePartToFileName(System.String)">
-            <summary>
-            Adds the name of the japanese language part to file.
-            </summary>
-            <param name="filename">The filename.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portrait_Change">
-            <summary>
-            Portraits_s the change.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Portraits_Change">
-            <summary>
-            Portraits_s the change.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.FormatDate(System.DateTime,System.Globalization.CultureInfo)">
-            <summary>
-            Formats the date.
-            </summary>
-            <param name="date">
-            The date.
-            </param>
-            <param name="cultureInfo">
-            The info.
-            </param>
-            <returns>
-            The formated date.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.GetControlID(Sitecore.Data.Templates.TemplateField)">
-            <summary>
-            Gets the control ID.
-            </summary>
-            <param name="field">
-            The field.
-            </param>
-            <returns>
-            The control ID.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.GetUser">
-            <summary>
-            Gets the user.
-            </summary>
-            <returns>
-            The user.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.HasChanged(System.String,System.String)">
-            <summary>
-            Because profileValue could be null or string.Empty and control's value could be only string.Empty then
-            check profileValue != controlValue does not give us 100% guarantee that nothing was changed and
-            we also should check !string.IsNullOrEmpty(profileValue) || !string.IsNullOrEmpty(controlValue)
-            </summary>
-            <param name="profileValue">Profile value to check.
-            </param>
-            <param name="controlValue">Control value to check.
-            </param>
-            <returns>
-            The has changed.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderLanguages(Sitecore.Data.Database,System.Web.UI.WebControls.DropDownList)">
-            <summary>
-            Builds the languages.
-            </summary>
-            <param name="database">
-            The database.
-            </param>
-            <param name="dropDownList">
-            The drop down list.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Localize">
-            <summary>
-            Localizes the tabs in tabstrip.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderCheckBox(Sitecore.Data.Templates.TemplateField,System.String)">
-            <summary>
-            Renders the check box.
-            </summary>
-            <param name="field">
-            The field.
-            </param>
-            <param name="value">
-            The value.
-            </param>
-            <returns>
-            The check box.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderChecklist(Sitecore.Data.Templates.TemplateField,System.String)">
-            <summary>
-            Renders the lookup.
-            </summary>
-            <param name="field">
-            The field.
-            </param>
-            <param name="value">
-            The value.
-            </param>
-            <returns>
-            The lookup.
-            </returns>
-            <contract>
-              <requires name="field" condition="not null"/>
-              <requires name="value" condition="not null"/>
-              <ensures condition="nullable"/>
-            </contract>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderClientLanguages">
-            <summary>
-            Builds the client languages.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderContentLanguages">
-            <summary>
-            Builds the client languages.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderField(Sitecore.Security.UserProfile,Sitecore.Data.Templates.TemplateField)">
-            <summary>
-            Renders the field.
-            </summary>
-            <param name="profile">
-            The profile.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderFieldInput(Sitecore.Security.UserProfile,Sitecore.Data.Templates.TemplateField)">
-            <summary>
-            Renders the field input.
-            </summary>
-            <param name="profile">
-            The profile.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderFieldLabel(Sitecore.Data.Templates.TemplateField)">
-            <summary>
-            Renders the field label.
-            </summary>
-            <param name="field">
-            The field.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderLookup(Sitecore.Data.Templates.TemplateField,System.String,System.Boolean)">
-            <summary>
-            Renders the lookup.
-            </summary>
-            <param name="field">
-            The field.
-            </param>
-            <param name="value">
-            The value.
-            </param>
-            <param name="valueLookup">
-            if set to <c>true</c> this instance is value lookup.
-            </param>
-            <returns>
-            The lookup.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderMemo(System.String)">
-            <summary>
-            Renders the memo.
-            </summary>
-            <param name="value">
-            The value.
-            </param>
-            <returns>
-            The memo.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderPassword(System.String)">
-            <summary>
-            Renders the password.
-            </summary>
-            <param name="value">
-            The value.
-            </param>
-            <returns>
-            The password.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderPortraits">
-            <summary>
-            Builds the portraits.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderProfileTemplate(Sitecore.Security.UserProfile,System.String)">
-            <summary>
-            Renders the profile template.
-            </summary>
-            <param name="profile">
-            The profile.
-            </param>
-            <param name="id">
-            The id.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderRegionalIsoCodes">
-            <summary>
-            Builds the regional ISO codes.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderRoles(Sitecore.Security.Accounts.User)">
-            <summary>
-            Renders the roles.
-            </summary>
-            <param name="user">
-            The user.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderSection(Sitecore.Security.UserProfile,Sitecore.Data.Templates.TemplateSection)">
-            <summary>
-            Renders the section.
-            </summary>
-            <param name="profile">
-            The profile.
-            </param>
-            <param name="section">
-            The section.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.RenderText(System.String)">
-            <summary>
-            Renders the text.
-            </summary>
-            <param name="value">
-            The value.
-            </param>
-            <returns>
-            The text.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.SaveCustomProperties(Sitecore.Security.UserProfile,System.Boolean@)">
-            <summary>
-            Saves the custom properties.
-            </summary>
-            <param name="profile">
-            The profile.
-            </param>
-            <param name="changed">
-            Indicates wherever UserProfile was changed.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Security.EditUser.EditUserPage.Validate">
-            <summary>
-            Validates this instance.
-            </summary>
-            <returns>
-            The validate.
-            </returns>
-        </member>
         <member name="T:Sitecore.Shell.Applications.Security.RoleManager.RoleManager">
             <summary>
             Represents a RoleManager.
@@ -20887,6 +21566,11 @@
         <member name="T:Sitecore.Shell.Applications.WebEdit.Commands.Save">
             <summary>
             The Save command.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.WebEdit.Commands.Save.LinkRegex">
+            <summary>
+            The regex for links
             </summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.WebEdit.Commands.Save.Execute(Sitecore.Shell.Framework.Commands.CommandContext)">
@@ -24539,6 +25223,25 @@
         <member name="F:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.FoldersAction">
             <summary></summary>
         </member>
+        <member name="F:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.ContextMenuDelete">
+            <summary></summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.ContextMenuZip">
+            <summary></summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.ContextMenuDivider">
+            <summary></summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.ContextMenuDivider1">
+            <summary>
+            The context menu divider1
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.ContextMenuView">
+            <summary>
+            The context menu view
+            </summary>
+        </member>
         <member name="M:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.OnLoad(System.EventArgs)">
             <summary>
             Raises the load event.
@@ -24640,6 +25343,30 @@
             Zips the files.
             </summary>
             <param name="list">The list.</param>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.CanDelete">
+            <summary>
+            Gets a value indicating whether this instance can delete.
+            </summary>
+            <value>
+            <c>True</c> if this instance can delete; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.CanAddToZip">
+            <summary>
+            Gets a value indicating whether this instance can add to zip.
+            </summary>
+            <value>
+            <c>True</c> if this instance can add to zip; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Files.FileExplorer.FileExplorerForm.CanSwitchView">
+            <summary>
+            Gets a value indicating whether current user can switch view.
+            </summary>
+            <value>
+            <c>true</c> if current user can switch view; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="T:Sitecore.Shell.Applications.Files.FileLister.FileListerForm">
             <summary>
@@ -37232,7 +37959,7 @@
             Gets the save packet.
             </summary>
             <param name="fieldInfo">
-            The field info.
+              The field info.
             </param>
             <returns>
             The save packet.
@@ -37264,13 +37991,13 @@
             Returns the values.
             </summary>
         </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorForm.Save(Sitecore.Web.UI.Sheer.Message)">
+        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorForm.Save">
             <summary>
             Saves the specified message.
             </summary>
-            <param name="message">
-            The message.
-            </param>
+            <returns>
+            The save result.
+            </returns>
         </member>
         <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorForm.SetDocumentType">
             <summary>
@@ -37403,248 +38130,6 @@
             <value>
             The validators key.
             </value>
-        </member>
-        <member name="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions">
-            <summary>
-            Defines the field editor options class.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._fields">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._dialogTitle">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._icon">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.parameters">
-            <summary>
-            Custom parameters
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._text">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions._title">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.handleName">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions"/> class.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.#ctor(System.Collections.Generic.IEnumerable{Sitecore.Data.FieldDescriptor})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions"/> class.
-            </summary>
-            <param name="fields">
-            The fields.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parse(Sitecore.Text.UrlString)">
-            <summary>
-            Parses the specified url.
-            </summary>
-            <param name="url">
-            The url to parse.
-            </param>
-            <returns>
-            The field editor options.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parse(System.String)">
-            <summary>
-            Parses the specified handle.
-            </summary>
-            <param name="handle">
-            The handle.
-            </param>
-            <returns>
-            The field editor options.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.ToUrlHandle">
-            <summary>
-            Converts the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions"/> to a <see cref="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.HandleName"/>.
-            </summary>
-            <returns>The <see cref="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.HandleName"/>.</returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.ToUrlString">
-            <summary>
-            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
-            </summary>
-            <returns>
-            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parse(Sitecore.Web.UrlHandle)">
-            <summary>
-            Parses the specified handle.
-            </summary>
-            <param name="handle">
-            The handle.
-            </param>
-            <returns>
-            The field editor options.
-            </returns>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.DialogTitle">
-            <summary>
-            Gets or sets the dialog title.
-            </summary>
-            <value>The dialog title.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Fields">
-            <summary>
-            Gets the fields.
-            </summary>
-            <value>The fields.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Icon">
-            <summary>
-            Gets or sets the icon.
-            </summary>
-            <value>The dialog icon.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.PreserveSections">
-            <summary>
-            Gets or sets a value indicating whether [preserve sections].
-            </summary>
-            <value><c>true</c> if [preserve sections]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.SaveItem">
-            <summary>
-            Gets or sets value indicating if item should be saved
-            </summary>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Text">
-            <summary>
-            Gets or sets the text.
-            </summary>
-            <value>The dialog text.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Title">
-            <summary>
-            Gets or sets the title.
-            </summary>
-            <value>The title.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.HandleName">
-            <summary>
-            Gets or sets the handle.
-            </summary>
-            <value>The handle.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditorOptions.Parameters">
-            <summary>
-            Gets the custom parameters.
-            </summary>
-            <value>The custom parameters.</value>
-        </member>
-        <member name="T:Sitecore.Shell.Applications.ContentManager.FieldEditor">
-            <summary>
-            Defines the mini editor class.
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditor._defaultIcon">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditor._defaultTitle">
-            <summary>
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentManager.FieldEditor._fields">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.ContentManager.FieldEditor"/> class.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.Render(System.Collections.Generic.IEnumerable{Sitecore.Data.FieldDescriptor},System.Collections.Hashtable,System.Web.UI.Control)">
-            <summary>
-            Renders the specified fields.
-            </summary>
-            <param name="fields">
-            The fields.
-            </param>
-            <param name="fieldInfo">
-            The fieldinfo.
-            </param>
-            <param name="parent">
-            The parent.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.Render(Sitecore.Data.Items.Item,Sitecore.Data.Items.Item,System.Collections.Hashtable,System.Web.UI.Control,System.Boolean)">
-            <summary>
-            Renders the editor.
-            </summary>
-            <param name="root">The root.</param>
-            <param name="item">The item.</param>
-            <param name="fieldInfo">The field info.</param>
-            <param name="parent">The parent.</param>
-            <param name="showEditor">if set to <c>true</c> this instance is show editor.</param>
-            <exception cref="T:System.InvalidOperationException">
-            Not supported in field editor
-            </exception>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.GetEditorFormatter">
-            <summary>
-            Gets the editor formatter.
-            </summary>
-            <returns>The editor formatter.</returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.GetSections">
-            <summary>
-            Gets the sections.
-            </summary>
-            <returns>The sections.</returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentManager.FieldEditor.GetWarnings(System.Boolean)">
-            <summary>
-            Gets the warnings.
-            </summary>
-            <param name="hasSections">
-            if set to <c>true</c> [has sections].
-            </param>
-            <returns>
-            </returns>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.DefaultIcon">
-            <summary>
-            Gets or sets the default icon.
-            </summary>
-            <value>The default icon.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.DefaultTitle">
-            <summary>
-            Gets or sets the default title.
-            </summary>
-            <value>The default title.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.PreserveSections">
-            <summary>
-            Gets or sets a value indicating whether [preserve sections].
-            </summary>
-            <value><c>true</c> if [preserve sections]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentManager.FieldEditor.FieldUris">
-            <summary>
-            Gets the fields.
-            </summary>
-            <value>The fields.</value>
         </member>
         <member name="T:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorFields.GetExplicitFields">
             <summary>
@@ -41026,349 +41511,6 @@
             Represents a Reset Fields preview pane.
             </summary>
         </member>
-        <member name="T:Sitecore.Shell.Applications.ContentEditor.EditorFormatter">
-            <summary>
-            Formatter for rendering the editor
-            </summary>
-        </member>
-        <member name="F:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.arguments">
-            <summary>
-            The arguments.
-            </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetAttributes(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean)">
-            <summary>
-            Sets the attributes.
-            </summary>
-            <param name="editor">
-            The editor.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="hasRibbon">
-            if set to <c>true</c> this instance is has ribbon.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetProperties(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean)">
-            <summary>
-            Sets the properties.
-            </summary>
-            <param name="editor">
-            The editor.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> this instance is read only.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetStyle(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field)">
-            <summary>
-            Sets the style.
-            </summary>
-            <param name="editor">
-            The editor.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.AddEditorControl(System.Web.UI.Control,System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean,System.Boolean,System.String)">
-            <summary>
-            Adds the editor control.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="editor">
-            The editor.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="hasRibbon">
-            if set to <c>true</c> [has ribbon].
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> [read only].
-            </param>
-            <param name="value">
-            The value.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.AddLiteralControl(System.Web.UI.Control,System.String)">
-            <summary>
-            Adds the literal control.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="text">
-            The control text.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.GetEditor(Sitecore.Data.Items.Item)">
-            <summary>
-            Gets the editor.
-            </summary>
-            <param name="fieldType">
-            Type of the field.
-            </param>
-            <returns>
-            The editor.
-            </returns>
-            <contract>
-              <requires name="fieldType" condition="not null"/>
-              <ensures condition="not null"/>
-            </contract>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.GetFieldType(Sitecore.Data.Fields.Field)">
-            <summary>
-            Gets the type of the field.
-            </summary>
-            <param name="itemField">
-            The item field.
-            </param>
-            <returns>
-            The items that represents field type.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,System.Boolean)">
-            <summary>
-            Renders the field.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> this instance is read only.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
-            <summary>
-            Renders the field.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="fieldType">
-            Type of the field.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> [read only].
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean,System.String)">
-            <summary>
-            Renders the field.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="fieldType">
-            Type of the field.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> this instance is read only.
-            </param>
-            <param name="value">
-            The value.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderLabel(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
-            <summary>
-            Renders the label.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="fieldType">
-            Type of the field.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> [read only].
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMarkerBegin(System.Web.UI.Control,System.String)">
-            <summary>
-            Renders the marker begin.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="fieldControlID">
-            The field control id.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMarkerEnd(System.Web.UI.Control)">
-            <summary>
-            Renders the marker end.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMenuButtons(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
-            <summary>
-            Renders the menu buttons.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-            <param name="fieldType">
-            Type of the field.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> [read only].
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSection(Sitecore.Shell.Applications.ContentManager.Editor.Section,System.Web.UI.Control,System.Boolean)">
-            <summary>
-            Renders the section.
-            </summary>
-            <param name="section">
-            The section.
-            </param>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> this instance is read only.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSectionBegin(System.Web.UI.Control,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Renders the section begin.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="controlId">
-            The control id.
-            </param>
-            <param name="sectionName">
-            Name of the section.
-            </param>
-            <param name="displayName">
-            Name of the display.
-            </param>
-            <param name="icon">
-            The section icon.
-            </param>
-            <param name="isCollapsed">
-            if set to <c>true</c> this section is is collapsed.
-            </param>
-            <param name="renderFields">
-            if set to <c>true</c> fields will be rendered.
-            </param>
-            <contract>
-              <requires name="parent" condition="not null"/>
-              <requires name="controlId" condition="not empty"/>
-              <requires name="displayName" condition="not empty"/>
-              <requires name="icon" condition="not null"/>
-            </contract>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSectionEnd(System.Web.UI.Control,System.Boolean)">
-            <summary>
-            Renders the section end.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="renderFields">
-            if set to <c>true</c> [render fields].
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSectionEnd(System.Web.UI.Control,System.Boolean,System.Boolean)">
-            <summary>
-            Renders the section end.
-            </summary>
-            <param name="parent">The parent.</param>
-            <param name="renderFields">if set to <c>true</c> literal control will be rendered.</param>
-            <param name="isCollapsed">if set to <c>true</c> section is collapsed.</param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderSections(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Sections,System.Boolean)">
-            <summary>
-            Renders the sections.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="sections">
-            The sections.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> this instance is read only.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.SetValue(System.Web.UI.Control,System.String)">
-            <summary>
-            Sets the value.
-            </summary>
-            <param name="editor">
-            The editor.
-            </param>
-            <param name="value">
-            The value.
-            </param>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderMenuButtons(Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
-            <summary>
-            Renders the menu buttons.
-            </summary>
-            <param name="field">
-            The field.
-            </param>
-            <param name="menu">
-            The menu item.
-            </param>
-            <param name="readOnly">
-            if set to <c>true</c> the buttons are read-only.
-            </param>
-            <returns>
-            The menu buttons.
-            </returns>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.RenderResizable(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field)">
-            <summary>
-            Renders the resizable.
-            </summary>
-            <param name="parent">
-            The parent.
-            </param>
-            <param name="field">
-            The field.
-            </param>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.Arguments">
-            <summary>
-            Gets or sets the argumets.
-            </summary>
-            <value>The arguments.</value>
-        </member>
-        <member name="P:Sitecore.Shell.Applications.ContentEditor.EditorFormatter.IsFieldEditor">
-            <summary>
-            Gets or sets a value indicating whether editor formatter is rendering field editor.
-            </summary>
-            <value><c>true</c> if field editor; otherwise, <c>false</c>.</value>
-        </member>
         <member name="M:Sitecore.Shell.Applications.ContentManager.Dialogs.ResetFields.ResetFieldsFormatter.RenderField(System.Web.UI.Control,Sitecore.Shell.Applications.ContentManager.Editor.Field,Sitecore.Data.Items.Item,System.Boolean)">
             <summary>
             Renders the translator.
@@ -41506,10 +41648,10 @@
             Determines whether this instance can show the field.
             </summary>
             <param name="field">
-            The field.
+              The field.
             </param>
             <param name="templateField">
-            The template field.
+              The template field.
             </param>
             <returns>
             <c>true</c> if this instance can show the field the specified field; otherwise, <c>false</c>.
@@ -41550,6 +41692,11 @@
             <value>
               <c>true</c> if the <see cref="T:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorFields.GetFields"/> shows the data fields only; otherwise, <c>false</c>.
             </value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorFields.GetFields.ShowHiddenFields">
+            <summary>
+            Gets or sets a value indicating whether show hidden fields.
+            </summary>
         </member>
         <member name="T:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorFields.GetContentEditorFieldsArgs">
             <summary>
@@ -41630,6 +41777,14 @@
             </summary>
             <value>
             	<c>true</c> if the <see cref="T:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorFields.GetContentEditorFieldsArgs"/> shows the data fields only; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorFields.GetContentEditorFieldsArgs.ShowHiddenFields">
+            <summary>
+            Gets or sets a value indicating whether [show hidden fields].
+            </summary>
+            <value>
+              <c>true</c> if [show hidden fields]; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="T:Sitecore.Shell.Applications.ContentEditor.Pipelines.GetContentEditorSkin.ShowStandardFields">
@@ -44906,30 +45061,39 @@
             </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Designer.Internals">
-            <summary></summary>
+            <summary>
+            The internals
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Designer.RibbonFrame">
-            <summary></summary>
+            <summary>
+            The ribbon frame
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Designer.View">
-            <summary></summary>
+            <summary>
+            The view
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Designer.ViewFrame">
-            <summary></summary>
+            <summary>
+            The view frame
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Designer.StatusText">
-            <summary></summary>
+            <summary>
+            The status text
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Designer.FrameName">
-            <summary></summary>
+            <summary>
+            The frame name
+            </summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Designer.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Sitecore.Shell.Applications.Install.Designer"/> class.
             </summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Install.Designer.OnLoad(System.EventArgs)">
-            <summary></summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Designer.HandleMessage(Sitecore.Web.UI.Sheer.Message)">
             <summary>
@@ -44937,47 +45101,252 @@
             </summary>
             <param name="message">The message.</param>
         </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the load event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <remarks>
+            This method notifies the server control that it should perform actions common to each HTTP
+            request for the page it is associated with, such as setting up a database query. At this
+            stage in the page lifecycle, server controls in the hierarchy are created and initialized,
+            view state is restored, and form controls reflect client-side data. Use the IsPostBack
+            property to determine whether the page is being loaded in response to a client postback,
+            or if it is being loaded and accessed for the first time.
+            </remarks>
+        </member>
         <member name="M:Sitecore.Shell.Applications.Install.Designer.OnSaveFile(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            Called when file is being saved.
+            </summary>
+            <param name="message">The message.</param>
             <exception cref="T:System.IO.InvalidDataException"><c>InvalidDataException</c>.</exception>
         </member>
-        <member name="T:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog">
-            <summary></summary>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.OnBind(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            Called when binding is performed.
+            </summary>
+            <param name="message">The message.</param>
         </member>
-        <member name="F:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.FileExplorer">
-            <summary></summary>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.OnUpdateRibbon(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            Called when ribbon is being updated.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.ChangeContext(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            Changes the context.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.UpdateRibbon(Sitecore.Data.Items.Item)">
+            <summary>
+            Updates the ribbon.
+            </summary>
+            <param name="contextItem">The context item.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.FillFrameName">
+            <summary>
+            Fills the name of the frame.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.OnDocumentChanged(System.Object,System.EventArgs)">
+            <summary>
+            Called when document has been changed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.OnDocumentNameChanged(System.Object,System.EventArgs)">
+            <summary>
+            Called when document name has been changed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.Bind">
+            <summary>
+            Binds this instance.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Designer.SetStatus(System.String)">
+            <summary>
+            Sets the status.
+            </summary>
+            <param name="status">The status.</param>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog">
+            <summary>
+            Defines the BrowseDialog type
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Dialog">
-            <summary></summary>
+            <summary>
+            The dialog
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.FileExplorer">
+            <summary>
+            The file explorer
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Filename">
-            <summary></summary>
+            <summary>
+            The filename
+            </summary>
         </member>
-        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.OnLoad(System.EventArgs)">
-            <summary></summary>
-        </member>
-        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.OnOK(System.Object,System.EventArgs)">
-            <summary></summary>
+        <member name="F:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.handle">
+            <summary>
+            The handle
+            </summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.AskOverwrite(Sitecore.Web.UI.Sheer.ClientPipelineArgs)">
-            <summary></summary>
+            <summary>
+            The ask overwrite.
+            </summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the load event.
+            </summary>
+            <param name="e">
+            The <see cref="T:System.EventArgs"/> instance containing the event data.
+            </param>
+            <remarks>
+            This method notifies the server control that it should perform actions common to each HTTP
+            request for the page it is associated with, such as setting up a database query. At this
+            stage in the page lifecycle, server controls in the hierarchy are created and initialized,
+            view state is restored, and form controls reflect client-side data. Use the IsPostBack
+            property to determine whether the page is being loaded in response to a client postback,
+            or if it is being loaded and accessed for the first time.
+            </remarks>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.OnOK(System.Object,System.EventArgs)">
+            <summary>
+            The on ok.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="args">The args.</param>
+            <remarks>
+            When the user clicks OK, the dialog is closed by calling
+            the <see cref="M:Sitecore.Web.UI.Sheer.ClientResponse.CloseWindow">CloseWindow</see> method.
+            </remarks>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Delete(Sitecore.Web.UI.Sheer.ClientPipelineArgs)">
+            <summary>
+            The delete.
+            </summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Refresh(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            The refresh.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.StartDownload(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            The start download.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.StartUpload(Sitecore.Web.UI.Sheer.Message)">
+            <summary>
+            The start upload.
+            </summary>
+            <param name="message">The message.</param>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.SelectListItem">
-            <summary></summary>
+            <summary>
+            The select list item.
+            </summary>
         </member>
-        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.BrowseForSave(System.String,System.String,System.String,System.String,System.String)">
-            <summary></summary>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.AddListItem(System.String)">
+            <summary>
+            The add list item.
+            </summary>
+            <param name="file">The file.</param>
         </member>
-        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.BrowseForSave(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary></summary>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.LoadView">
+            <summary>
+            The load view.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.ReloadView">
+            <summary>
+            The reload view.
+            </summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.BrowseForOpen(System.String,System.String,System.String,System.String,System.String)">
-            <summary></summary>
+            <summary>
+            The browse for open.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="mask">The mask.</param>
+            <param name="header">The header.</param>
+            <param name="text">The text.</param>
+            <param name="icon">The icon.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.BrowseForSave(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            The browse for save.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="mask">The mask.</param>
+            <param name="header">The header.</param>
+            <param name="text">The text.</param>
+            <param name="icon">The icon.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.BrowseForSave(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            The browse for save.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="mask">The mask.</param>
+            <param name="header">The header.</param>
+            <param name="text">The text.</param>
+            <param name="icon">The icon.</param>
+            <param name="defaultExtension">The default Extension.</param>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Open(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
-            <summary></summary>
+            <summary>
+            The open.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="mask">The mask.</param>
+            <param name="header">The header.</param>
+            <param name="text">The text.</param>
+            <param name="icon">The icon.</param>
+            <param name="oktext">The oktext.</param>
+            <param name="ask">The ask.</param>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Open(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String)">
-            <summary></summary>
+            <summary>
+            The open.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="mask">The mask.</param>
+            <param name="header">The header.</param>
+            <param name="text">The text.</param>
+            <param name="icon">The icon.</param>
+            <param name="oktext">The oktext.</param>
+            <param name="ask">The ask.</param>
+            <param name="defaultExtension">The default Extension.</param>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Handle">
+            <summary>
+            Gets the handle.
+            </summary>
+            <value>
+            The handle.
+            </value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Install.Dialogs.BrowseDialog.Folder">
+            <summary>
+            Gets Folder.
+            </summary>
         </member>
         <member name="T:Sitecore.Shell.Applications.Install.Dialogs.BuildPackage">
             <summary>
@@ -45722,13 +46091,19 @@
             </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.FileList">
-            <summary></summary>
+            <summary>
+            The file list
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.OverwriteCheck">
-            <summary></summary>
+            <summary>
+            The overwrite check
+            </summary>
         </member>
         <member name="F:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.Location">
-            <summary></summary>
+            <summary>
+            The location
+            </summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.OnLoad(System.EventArgs)">
             <summary>
@@ -45753,8 +46128,14 @@
             <returns>
             True, if the change is allowed, otherwise false.
             </returns>
-            <remarks>Set the newpage parameter to another page ID to control the
-            path through the wizard pages.</remarks>
+            <contract>
+              <requires name="page" condition="not null" />
+              <requires name="newpage" condition="not null" />
+            </contract>
+            <remarks>
+            Set the newpage parameter to another page ID to control the
+            path through the wizard pages.
+            </remarks>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.ActivePageChanged(System.String,System.String)">
             <summary>
@@ -45762,6 +46143,10 @@
             </summary>
             <param name="page">The page that has been entered.</param>
             <param name="oldPage">The page that was left.</param>
+            <contract>
+              <requires name="page" condition="not null" />
+              <requires name="oldPage" condition="not null" />
+            </contract>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.StartUploading">
             <summary>
@@ -45817,11 +46202,26 @@
             </summary>
             <returns>The file input.</returns>
         </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.GetUrl(System.String)">
+            <summary>
+            Gets the URL.
+            </summary>
+            <param name="directory">The directory.</param>
+            <returns></returns>
+        </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.Show(System.String,System.Boolean)">
-            <summary></summary>
+            <summary>
+            Shows the specified directory.
+            </summary>
+            <param name="directory">The directory.</param>
+            <param name="postback">if set to <c>true</c> [postback].</param>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.Show(System.String,System.String)">
-            <summary></summary>
+            <summary>
+            Shows the specified directory.
+            </summary>
+            <param name="directory">The directory.</param>
+            <param name="message">The message.</param>
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackageForm.HandleMessage(Sitecore.Web.UI.Sheer.Message)">
             <summary>
@@ -45833,11 +46233,13 @@
             <summary>
             Gets or sets the directory.
             </summary>
-            <value>The directory.</value>
+            <value>
+            The directory.
+            </value>
         </member>
         <member name="T:Sitecore.Shell.Applications.Install.Dialogs.UploadPackage.UploadPackagePage2">
             ==========================================================================
-             <summary></summary>
+            <summary>Defines the UploadPackagePage2 type</summary>
             ==========================================================================
         </member>
         <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackage.UploadPackagePage2.OnInit(System.EventArgs)">
@@ -45851,6 +46253,13 @@
             Raises the <see cref="E:System.Web.UI.Control.Load"></see> event.
             </summary>
             <param name="e">The <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+            <exception cref="T:Sitecore.Exceptions.SecurityException"><c>SecurityException</c>.</exception>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Install.Dialogs.UploadPackage.UploadPackagePage2.SetFileOnlyIfExists(Sitecore.Pipelines.Upload.UploadArgs)">
+            <summary>
+            Sets the FileOnly property.
+            </summary>
+            <param name="args">The args.</param>
         </member>
         <member name="T:Sitecore.Shell.Applications.Install.Galleries.NewProject">
             <summary>
@@ -48027,6 +48436,11 @@
         <member name="F:Sitecore.Shell.Applications.Media.MediaBrowser.MediaBrowserForm.OpenWebDAVViewButton">
             <summary>
             Button for openning Web DAV view.
+            </summary>
+        </member>
+        <member name="F:Sitecore.Shell.Applications.Media.MediaBrowser.MediaBrowserForm.UploadButton">
+            <summary>
+            The upload button
             </summary>
         </member>
         <member name="M:Sitecore.Shell.Applications.Media.MediaBrowser.MediaBrowserForm.HandleMessage(Sitecore.Web.UI.Sheer.Message)">
@@ -50214,11 +50628,6 @@
             Renders the script constants.
             </summary>
         </member>
-        <member name="M:Sitecore.Shell.Controls.RichTextEditor.EditorPage.SwitchToIE8Mode">
-            <summary>
-            Switches to IE 8 mode.
-            </summary>
-        </member>
         <member name="F:Sitecore.Shell.Controls.RichTextEditor.EditorPage.EditorStyles">
             <summary>
             EditorStyles control.
@@ -50255,9 +50664,9 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:Sitecore.Shell.Controls.RichTextEditor.EditorPage.UpdatePanel1">
+        <member name="F:Sitecore.Shell.Controls.RichTextEditor.EditorPage.EditorUpdatePanel">
             <summary>
-            UpdatePanel1 control.
+            EditorUpdatePanel control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -50585,6 +50994,24 @@
             <summary>
             Error
             </summary>
+        </member>
+        <member name="T:Sitecore.Shell.Upgrades.Hotfix382010PostStep">
+            <summary>
+            Defines the Hotfix382010PostStep type.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Upgrades.Hotfix382010PostStep.Run(Sitecore.Install.Framework.ITaskOutput,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Runs this post step
+            </summary>
+            <param name="output">The output.</param>
+            <param name="metaData">The meta data.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Upgrades.Hotfix382010PostStep.UpdateSecurity(Sitecore.Data.Database)">
+            <summary>
+            Updates the security.
+            </summary>
+            <param name="database">The database.</param>
         </member>
         <member name="T:Sitecore.Shell.Upgrades.PostStep">
             <summary>
